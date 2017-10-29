@@ -3,7 +3,106 @@ extends ../layout/layout.simditor
   
 block content
   <!-- .full-height-scroll -->
-  include ../includes/simditor
+  .row.wrapper.border-bottom.white-bg.page-heading
+    .col-lg-12
+      h2 创建课程
+      |         
+      ol.breadcrumb
+        li
+          a 课程管理
+        |             
+        li.active
+          b 创建课程
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-lg-12
+        .ibox
+          .ibox-title
+            h3
+              span.text-navy 新建课程
+          |                 
+          .ibox-content
+            form#form.form-horizontal(method='post', onsubmit='return false')
+              .form-group
+                label.col-sm-2.control-label 课程名称
+                |                             
+                .col-sm-4
+                  input.form-control(type='text', name='name', placeholder='标题一定醒目')
+              |                         
+              .form-group
+                label.col-sm-2.control-label 价格
+                |                             
+                .col-sm-4
+                  input.form-control(type='text', name='price', placeholder='整数')
+              |  
+              .form-group
+                label.col-sm-2.control-label 提示信息
+                |                             
+                .col-sm-4
+                  input.form-control(type='text', name='prompt', placeholder='官方提示信息')
+              |  
+              .form-group
+                label.col-sm-2.control-label 受众
+                |                             
+                .col-sm-4
+                  input.form-control(type='text', name='target_user', placeholder='细分用户群体')
+              |  
+              .form-group
+                label.col-sm-2.control-label 状态
+                |                            
+                .col-sm-2
+                  select.form-control(name='jobType')
+                    option(value='REAL_TIME_JOB') 更新中
+                    |                                     
+                    option(value='TRIGGER_TIME_JOB') 直播课程
+                    |                                     
+                    option(value='CRON_JOB') 不可用
+                |                             
+                #cronJob.col-sm-3(style='display:none;')
+                  input.form-control(type='text', name='cronExpression', placeholder='请输入CronExpression')
+                |                             
+                #triggerTimeJob.col-sm-3(style='display:none;')
+                  input#triggerTime.form-control.datepicker(type='text', style='width:160px', name='triggerTime', date-format='yyyy-MM-dd HH:mm:ss', placeholder='请输入触发时间')
+              |            
+              .form-group.full-height-scroll
+                textare(id="editor" placeholder="课程具体内容，请详细描述" autofocus)
+              .form-group
+                .col-sm-1.col-sm-offset-3(style='width:70px;')
+                  button(id="submit" type="submit" class="btn btn-primary") Submit
+                .col-sm-1.col-sm-offset-3(style='width:70px;')
+                  button#editBtn.btn.btn-danger(type='button') Cancel
+
+    <!-- |
+    .row
+      .col-lg-12
+        .ibox
+          #ltstableContainer.ibox-content -->
+  
+  script.
+    $(document).ready(function () {
+    
+      $('#submit').on('click', function () {
+        // alert($('#editor').val());
+        var cname  = $('input[name="name"]').val();
+        var price = $('input[name="price"]').val();
+        var target_user = $('input[name="target_user"]').val();
+        var prompt =  $('input[name="price"]').val();
+        
+        var body = {
+          name:cname,
+          price: price,
+          target_user: target_user,
+          prompt: prompt
+        }
+        // return;
+        $.post('/api/courses',body, function (res) {
+          alert(res.status.code === 0 ? "创建成功" : "创建失败")
+          window.location.href = '/courses/list'
+        })
+        
+      });
+    });
+  
 
     
   script.
