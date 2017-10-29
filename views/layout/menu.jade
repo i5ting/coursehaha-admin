@@ -3,13 +3,23 @@ nav.navbar-default.navbar-static-side(role='navigation')
     ul#side-menu.nav.metismenu
       li.nav-header
         .dropdown.profile-element
-          #current-env.env-element(env='daily') Moajs管理后台
+          #current-env.env-element(env='daily') StuQ管理后台
         .logo-element Moajs
       li
         a(href='/')
           i.fa.fa-th
           span.nav-label 首页
           span.label.label-info.pull-right 推荐
+      li
+        a(href='#')
+          i.fa.fa-server
+          span.nav-label 课程管理
+          span.fa.arrow
+        ul.nav.nav-second-level.collapse
+          li
+            a(href='/courses/create') 新建
+          li
+            a(href='/courses/list') 查看列表
       li
         a(href='#')
           i.fa.fa-server
