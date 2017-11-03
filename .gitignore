@@ -60,3 +60,8 @@ typings/
 config/nginx.conf
 config/simditor_qn.js
 
+.DS_Store
+package-lock.json
+tmp/
+
+    
