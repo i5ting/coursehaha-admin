@@ -99,7 +99,7 @@
           'click .action_delete' : function(e, value, row, index){
             console.log(row)
             $.ajax({
-              url: '/api/courses/' + row._id ,
+              url: '/courses/api/' + row._id ,
               type: 'DELETE',
               success: function(result) {
                   // Do something with the result
