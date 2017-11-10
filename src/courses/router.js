@@ -67,10 +67,19 @@ router.get('/', function (ctx, next) {
   })
 })
 
+var simditor_qn_config = require('../../config/simditor_qn')
+
 router.get('/new', function (ctx, next) {
+  var qn = require('qn');
+  var client = qn.create(simditor_qn_config.qn);
+  
+  var token = client.uploadToken();
+  console.log(token)
+  
   ctx.render('src/courses/new', {
     title: "2323",
-    menu: menu
+    menu: menu,
+    token : token
   })
 })
 
@@ -81,7 +90,7 @@ router.get('/:id/edit', function (ctx, next) {
 })
 
 router.get('/:id', function (ctx, next) {
-  let id = ctx.params.id
+  let id = ctx.params.id
   return new Promise(function (resolve, reject) {
     request('http://127.0.0.1:3000/api/courses/' + id, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
