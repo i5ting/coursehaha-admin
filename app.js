@@ -8,6 +8,7 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const render = require('koa-art-template')
 const mount = require('mount2')
+const res_api = require('koa.res.api')
 // for config storage
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
@@ -40,7 +41,9 @@ const CONFIG = {
 app.use(session(CONFIG, app));
 // or if you prefer all default config, just use => app.use(session(app));
 
-// require('./menu')()
+
+// res_api
+app.use(res_api());
 
 // error handler
 onerror(app)
