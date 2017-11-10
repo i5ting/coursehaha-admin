@@ -40,6 +40,8 @@ router.post('/api', function (ctx, next) {
   })
 })
 
+
+
 router.delete('/api/:id', function (ctx, next) {
   let id = ctx.params.id
   return new Promise(function (resolve, reject) {
