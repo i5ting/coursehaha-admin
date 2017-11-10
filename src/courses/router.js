@@ -69,7 +69,8 @@ router.get('/', function (ctx, next) {
 
 router.get('/new', function (ctx, next) {
   ctx.render('src/courses/new', {
-    title: "2323"
+    title: "2323",
+    menu: menu
   })
 })
 

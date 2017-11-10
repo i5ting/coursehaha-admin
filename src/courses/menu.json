@@ -1,0 +1,14 @@
+{
+  "name": "课程管理",
+  "url": "#",
+  "children": [
+    {
+      "name": "新建",
+      "url": "/courses/new"
+    },
+    {
+      "name": "列表",
+      "url": "/courses"
+    }
+  ]
+}
