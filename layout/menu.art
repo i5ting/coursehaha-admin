@@ -1,0 +1,50 @@
+<nav role="navigation" class="navbar-default navbar-static-side"> 
+  <div class="sidebar-collapse">
+    <ul id="side-menu" class="nav metismenu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <div id="current-env" env="daily" class="env-element">Moajs管理后台</div>
+        </div>
+        <div class="logo-element">Moajs</div>
+      </li>
+      <li>
+        <a href="/">
+          <i class="fa fa-th"></i>
+          <span class="nav-label">首页</span>
+          <span class="label label-info pull-right"></span>
+        </a>
+      </li>
+      {{each $data.menu}}
+          <!-- {{$index}} {{$value}} -->
+          <li>
+              <a href="{{$value.url || '#'}}}"><i class="fa fa-sitemap"></i> <span class="nav-label">{{$value.name || "no name"}} </span><span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level collapse">
+                  <li>
+                      {{each $value.children}} 
+                        {{include './templates/menu.child.art' $value}}
+                      {{/each}}
+                  </li>
+              </ul>
+          </li>
+      {{/each}}
+
+      {{if $data}}
+      <li>
+        <a href="/ui">
+          <i class="fa fa-th"></i>
+          <span class="nav-label">管理</span>
+          <span class="label label-info pull-right">设计</span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+          <li>
+            <a href="/admin/new">新建Api</a>
+          </li>
+          <li>
+            <a href="/admin/">Api列表</a>
+          </li>
+        </ul>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
