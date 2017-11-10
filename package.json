@@ -26,6 +26,7 @@
     "koa-simditor-qn": "^1.0.2",
     "koa-static": "^3.0.0",
     "koa-uploadify": "^1.0.0",
+    "koa.res.api": "^2.0.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
     "mount-middlewares": "^1.0.7",
