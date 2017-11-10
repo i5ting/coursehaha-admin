@@ -25,7 +25,7 @@ router.get('/api', function (ctx, next) {
 
 router.post('/api', function (ctx, next) {
   return new Promise(function (resolve, reject) {
-    request.post({ url: 'http://127.0.0.1:3000/api/courses', form: req.body }, function (error, response, body) {
+    request.post({ url: 'http://127.0.0.1:3000/api/courses', form: ctx.request.body }, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
@@ -90,7 +90,7 @@ router.get('/:id/edit', function (ctx, next) {
 })
 
 router.get('/:id', function (ctx, next) {
-  let id = ctx.params.id
+  let id = ctx.params.id
   return new Promise(function (resolve, reject) {
     request('http://127.0.0.1:3000/api/courses/' + id, function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred

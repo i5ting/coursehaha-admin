@@ -82,9 +82,9 @@
             prompt: prompt
           }
           // return;
-          $.post('/api/courses',body, function (res) {
+          $.post('/courses/api',body, function (res) {
             alert(res.status.code === 0 ? "创建成功" : "创建失败")
-            window.location.href = '/courses/list'
+            window.location.href = '/courses/'
           })
         });
       });
