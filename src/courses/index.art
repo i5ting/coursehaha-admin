@@ -2,13 +2,13 @@
 <% block('content', function(){ %>
     <div class="row wrapper border-bottom white-bg page-heading">
       <div class="col-lg-12">
-        <h2>用户管理</h2>
+        <h2>课程管理</h2>
         <ol class="breadcrumb">
           <li>
-            <b><a href="/courses/">用户列表</a></b>
+            <b><a href="/courses/">课程列表</a></b>
           </li>
           <li>
-            <a href="/courses/new">创建用户</a>
+            <a href="/courses/new">创建课程</a>
           </li>
         </ol>
       </div>
