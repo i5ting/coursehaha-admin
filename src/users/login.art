@@ -15,7 +15,7 @@ block content
     </div>
     <h3>欢迎加入</h3>
     <p>登录. 你将看到更多.</p>
-    <form class="m-t" role="form" action="index.html">
+    <form class="m-t" role="form" action="/users/login"  method='POST'>
       <div class="form-group">
         <input type="email" class="form-control" placeholder="用户名" required="">
       </div>

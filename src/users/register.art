@@ -15,18 +15,18 @@ block content
     </div>
     <h3>注册用户</h3>
     <p>创建账号后你将拥有更多</p>
-    <form class="m-t" role="form" action="login.html">
+    <form class="m-t" role="form" action="/users/register" method='POST'>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="用户名" required="">
+        <input type="text" class="form-control" placeholder="用户名" required="" name='username'>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="邮件" required="">
+        <input type="email" class="form-control" placeholder="邮件" required="" name='email'>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="密码" required="">
+        <input type="password" class="form-control" placeholder="密码" required="" name='password'>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="确认密码" required="">
+        <input type="password" class="form-control" placeholder="确认密码" required="" name='password2'>
       </div>
       <div class="form-group">
         <div class="checkbox i-checks">
