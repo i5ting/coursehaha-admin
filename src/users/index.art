@@ -104,19 +104,13 @@
           'click .action_delete': function (e, value, row, index) {
             console.log(row)
             $.ajax({
-              url: '/courses/api/' + row._id,
+              url: '/users/api/' + row._id,
               type: 'DELETE',
               success: function (result) {
                 // Do something with the result
                 $("#tableid").bootstrapTable('refresh');
               }
             });
-          },
-          'click .action_preview': function (e, value, row, index) {
-            console.log(row)
-            // var i = row.recommend == false ? 0 : 1
-            console.log('http://127.0.0.1:3000/courses/' + row._id);
-            window.location.href = 'http://127.0.0.1:3000/courses/' + row._id
           }
         }
         //开始时间

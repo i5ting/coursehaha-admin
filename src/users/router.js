@@ -79,4 +79,22 @@ router.get('/api', function (ctx, next) {
   })
 })
 
+router.delete('/api/:id', function (ctx, next) {
+  let id = ctx.params.id
+  return new Promise(function (resolve, reject) {
+    request.delete({ url: 'http://127.0.0.1:3000/api/users/' + id, form: {} }, function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+
+      var courses = JSON.parse(body)
+
+      console.log(body)
+      console.dir(courses)
+      resolve(courses)
+    });
+  }).then(function (courses) {
+    ctx.body = courses
+  })
+})
+
 module.exports = router
