@@ -4,7 +4,7 @@ const request = require('request')
 
 router.get('/', function (ctx, next) {
   ctx.render('src/users/index', {
-    title: "2323"
+    title: "用户管理"
   })
 })
 
@@ -57,6 +57,26 @@ router.post('/register', function (ctx, next) {
 
 router.get('/bar', function (ctx, next) {
   ctx.body = 'this is a users/bar response'
+})
+
+
+router.get('/api', function (ctx, next) {
+  return new Promise(function (resolve, reject) {
+    request('http://127.0.0.1:3000/api/users', function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+
+      var obj = JSON.parse(body)
+      var users = obj.data.users
+      console.log('body:', users); // Print the HTML for the Google homepage.
+      resolve(users)
+    });
+  }).then(function (users) {
+    ctx.body = {
+      "total": users.length,
+      "rows": users
+    }
+  })
 })
 
 module.exports = router
